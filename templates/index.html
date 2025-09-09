@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<title>Telefono numerio tikrinimas</title>
+<h2>Įveskite telefono numerį:</h2>
+<form method="post">
+    <input name="phone" placeholder="+370xxxxxxxx">
+    <input type="submit" value="Tikrinti">
+</form>
+{% if result %}
+<p><strong>Rezultatas:</strong> {{ result }}</p>
+{% endif %}
+
+{% endblock %}

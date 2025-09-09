@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<nav>
+    {% if session.get('user_id') %}
+        <form action="{{ url_for('logout') }}" method="post" style="display:inline;">
+            <button type="submit" style="margin: 5px;">Atsijungti</button>
+        </form>
+    {% else %}
+        <a href="{{ url_for('login') }}">
+            <button style="margin: 5px;">Prisijungti</button>
+        </a>
+    {% endif %}
+    <a href="{{ url_for('valid_number') }}">
+        <button style="margin: 5px;">Home page</button>
+    </a>
+    <a href="{{ url_for('numbers') }}">
+        <button style="margin: 5px;">Numeriai</button>
+    </a>
+</nav><hr>
+{% block content %}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Numeris: {{ number.number }}</h2>
+
+<h3>Komentarai:</h3>
+<ul>
+    {% for comment in comments %}
+    <li>
+        <strong>
+            {% if comment.user %}
+                {% if comment.user.is_confirmed %}
+                    {{ comment.user.phone[:9] }}**** - Confirmed ({{ comment.user.network }})
+                {% endif %}
+            {% else %}
+            Anonimas
+            {% endif %}
+        </strong>:
+        {{ comment.content }}<br>
+        <small>{{ comment.timestamp.strftime('%Y-%m-%d %H:%M') }}</small>
+    </li>
+    {% else %}
+    <li>Nėra komentarų.</li>
+    {% endfor %}
+</ul>
+
+<form method="post">
+    <textarea name="content" required placeholder="Palikite komentarą..."></textarea><br>
+    <input type="submit" value="Pridėti komentarą">
+</form>
+
+
+{% endblock %}

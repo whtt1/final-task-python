@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Validūs numeriai</h1>
+<ul>
+    {% for number in numbers %}
+    <li>
+        <a href="{{ url_for('number_detail', number_id=number.id) }}">{{ number.number }}</a>
+    </li>
+    {% else %}
+    <li>Nėra įrašytų numerių.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

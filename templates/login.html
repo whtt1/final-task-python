@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="post">
+    <label for="phone">Telefono numeris:</label><br>
+    <input type="text" name="phone" placeholder="+370xxxxxxxx" required><br><br>
+
+    <label for="password">Slaptažodis:</label><br>
+    <input type="password" name="password" required><br><br>
+
+    <label for="network">Pasirinkite tinklą:</label><br>
+    <select name="network" required>
+        <option value="Telia">Telia</option>
+        <option value="Tele2">Tele2</option>
+        <option value="Bitė">Bitė</option>
+        <option value="Kitas">Kitas</option>
+    </select><br><br>
+
+    <input type="submit" value="Prisijungti / Registruotis">
+</form>
+
+{% endblock %}
